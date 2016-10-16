@@ -1,0 +1,17 @@
+$focusColor: rgb(124, 124, 124);
+$borderColor: rgb(224, 224, 224);
+
+.text-field {
+  border: none;
+  border-bottom: 1px solid $borderColor;
+  outline: none;
+  font-size: 18px;
+  flex-grow: 1;
+  margin-right: 20px;
+  margin-left: 20px;
+  background: transparent;
+
+  &:focus {
+    border-color: $focusColor;
+  }
+}

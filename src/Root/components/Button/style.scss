@@ -1,0 +1,17 @@
+$buttonColor1: #0284CF;
+$buttonColor2: #02598B;
+
+.button {
+  color: #FEFEFF;
+  font-size: 18px;
+  border-radius: 6px;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 24px;
+  background: linear-gradient(to top, $buttonColor1, $buttonColor2);
+
+  &:hover {
+    background: linear-gradient(to top, $buttonColor2, $buttonColor1);
+  }
+}

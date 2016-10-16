@@ -1,0 +1,46 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "eslint:recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    // enable additional rules
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+
+    // override default options for rules from base configurations
+    "comma-dangle": ["error", "always-multiline"],
+    "no-cond-assign": ["error", "always"],
+
+    // disable rules from base configurations
+    "no-console": "off",
+    "no-confusing-arrow": 0,
+    "react/jsx-quotes": 0,
+    "jsx-quotes": [2, "prefer-single"],
+    "no-unused-expressions": 0,
+    "no-unused-vars": 0,
+    "no-extra-semi": 2,
+    "import/no-unresolved": [2, { "ignore": ["~/*"] }]
+    }
+}

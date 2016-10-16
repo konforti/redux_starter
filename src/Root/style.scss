@@ -1,0 +1,65 @@
+$linkColor1: #222222;
+$linkColor2: #CCCCCC;
+
+:global {
+  html,
+  body,
+  #viewport,
+  main {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Varela Round", Helvetica, sans-serif;
+    font-size: 14px;
+    background: #E7EAE9;
+
+    input {
+      font-family: "Varela Round", Helvetica, sans-serif;
+    }
+
+    .link {
+      cursor: pointer;
+      text-decoration: none;
+      color: $linkColor1;
+
+      &:hover {
+        color: $linkColor2;
+      }
+    }
+  }
+}
+
+#viewport {
+  margin: 20px 40px;
+}
+
+header {
+  .logo {
+    margin: 0 5px 30px;
+    border-bottom: 7px solid orange;
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      font-family: 'Suez One', serif;
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    img {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+footer {
+  border-top: 7px solid orange;
+}
+
+.no-items {
+  display: flex;
+  justify-content: center;
+  color: #ccc;
+}

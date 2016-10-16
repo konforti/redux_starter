@@ -1,0 +1,17 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .to-search {
+    margin: 30px;
+    display: flex;
+  }
+}
+
+.no-items {
+  display: flex;
+  justify-content: center;
+  color: #CCCCCC;
+}
