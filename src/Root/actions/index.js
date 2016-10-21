@@ -1,7 +1,7 @@
-import act from '../constants';
 import {config, api} from '~/utils';
 import shuffle from 'lodash/shuffle';
 import {bindActionCreators} from 'redux';
+import act from '../constants';
 
 /**
  * loginStatus

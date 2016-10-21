@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const config = require('./config');
@@ -41,6 +42,7 @@ module.exports = {
         publicPath: '/',
     },
     plugins: [
+        new FlowStatusWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: isDev
                 ? 'src/index.html'
@@ -86,12 +88,6 @@ module.exports = {
                 loaders: isDev
                     ? ['react-hot', 'babel']
                     : ['babel'],
-            }, {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loaders: isDev
-                    ? ['react-hot', 'ts']
-                    : ['ts'],
             }, {
                 test: /\.(scss|css)$/,
                 include: appPath,

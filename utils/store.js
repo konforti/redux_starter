@@ -3,6 +3,7 @@ import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 import {browserHistory} from 'react-router';
 import {routerMiddleware} from 'react-router-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 module.exports = function configureStore(env) {
     const isDev = env === 'development';

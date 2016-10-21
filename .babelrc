@@ -11,5 +11,5 @@
       ]
     }
   },
-  "plugins": ["babel-root-import"]
+  "plugins": ["babel-root-import", "transform-flow-strip-types"]
 }
