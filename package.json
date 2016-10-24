@@ -10,11 +10,12 @@
     "build": "NODE_ENV=production webpack -p --config bundler/webpack.config.js --progress --display-reasons --display-error-details",
     "lint": "eslint . --ext .js",
     "test": "karma start test/unit/karma.conf.js --compilers js:babel-register --recursive",
-    "test:local": "karma start test/unit/karma.local.conf.js --compilers js:babel-register --recursive",
+    "test:local": "NODE_ENV=test karma start test/unit/karma.local.conf.js --single-run",
     "test:e2e": "nightwatch -c test/e2e/nightwatch.conf.js",
     "test:e2e:local": "pkill BrowserSt & node test/e2e/test_local.js"
   },
   "dependencies": {
+    "babel-plugin-istanbul": "^2.0.3",
     "babel-polyfill": "^6.8.0",
     "chalk": "^1.1.3",
     "fbemitter": "^2.0.2",
@@ -91,5 +92,11 @@
     "webpack": "^2.1.0-beta.25",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
-  }
+  },
+  "repository": {
+    "url": "git@github.com:konforti/redux_starter.git",
+    "type": "git"
+  },
+  "author": "Raz Konforti <konforti@gmail.com>",
+  "license": "MIT"
 }

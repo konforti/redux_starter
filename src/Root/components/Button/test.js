@@ -1,4 +1,4 @@
-import Button from './index';
+import {Button} from './';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
@@ -13,6 +13,7 @@ window.describe('Button', () => {
                 onClick={(v) => v}
             />
         );
+        // console.log(wrapper.debug());
         expect(wrapper.find('.button').length).toEqual(1);
         expect(wrapper.find('.button').hasClass('special-button')).toEqual(true);
         expect(wrapper.find('.button').text()).toEqual('Click Me');

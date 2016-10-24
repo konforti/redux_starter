@@ -1,4 +1,4 @@
-import SearchBar from './index';
+import {SearchBar} from './index';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
@@ -9,7 +9,7 @@ window.describe('Dropbox <SearchBar />', () => {
 
     window.it('Render SearchBar', () => {
         const wrapper = shallow(
-            <SearchBar onSearch={() => ''} updateSearchTerm={() => ''} searchTerm='' />
+            <SearchBar onSearch={() => ''} actions={{updateSearchTerm: () => ''}} searchTerm='' />
         );
         // console.log(wrapper.debug());
         expect(wrapper.find('.go-back').length).toEqual(1);

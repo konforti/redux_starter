@@ -1,12 +1,12 @@
-import ImageGrid from './index';
-import GridTile from '../GridTile';
+import Grid from './';
+import GridTile from './GridTile';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 
-window.describe('ImageGrid', () => {
+window.describe('Grid', () => {
 
-    window.it('Render ImageGrid', () => {
+    window.it('Render Grid', () => {
         const images = [
             {
                 link: '1',
@@ -39,8 +39,8 @@ window.describe('ImageGrid', () => {
         ];
 
         const wrapper = shallow(
-            <ImageGrid
-                images={images}
+            <Grid
+                items={images}
                 limitReached={false}
                 actions={{}}
                 wayPointAction={(v) => v}

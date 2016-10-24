@@ -1,20 +1,14 @@
-import Button from './index';
+import Socials from './';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 
-window.describe('Button', () => {
+window.describe('Socials', () => {
 
-    window.it('Render Button', () => {
+    window.it('Render Socials', () => {
         const wrapper = shallow(
-            <Button
-                text='Click Me' 
-                className='special-button'
-                onClick={(v) => v}
-            />
+            <Socials />
         );
-        expect(wrapper.find('.button').length).toEqual(1);
-        expect(wrapper.find('.button').hasClass('special-button')).toEqual(true);
-        expect(wrapper.find('.button').text()).toEqual('Click Me');
+        expect(wrapper.find('.socials').length).toEqual(1);
     });
 });

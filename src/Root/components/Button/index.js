@@ -7,7 +7,7 @@ import React, {PropTypes} from 'react';
  * @param onClick
  * @constructor
  */
-const Button = ({text, className, onClick}) => (
+export const Button = ({text, className, onClick}) => (
     <a
         className={`button ${className}`}
         href='javascript:void(0)'

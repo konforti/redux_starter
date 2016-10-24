@@ -9,7 +9,10 @@
       "presets": [
         "react-hmre"
       ]
-    }
+    },
+    "test": {
+      "plugins": [ "istanbul"]
+    },
   },
   "plugins": ["babel-root-import", "transform-flow-strip-types"]
 }

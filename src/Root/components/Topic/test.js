@@ -1,21 +1,20 @@
-import TaggedPhotos from './index';
+import Topic from './';
 import {Provider} from 'react-redux';
 import {store} from '~/utils';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 
-window.describe('<TaggedPhotos />', () => {
+window.describe('<Topic />', () => {
 
-    window.it('Render TaggedPhotos', () => {
+    window.it('Render Topic', () => {
         const wrapper = mount(
             <Provider store={store}>
-                <TaggedPhotos />
+                <Topic params={{slug: 'slugish'}}/>
             </Provider>
 
         );
         // console.log(wrapper.debug());
-        expect(wrapper.find('TaggedPhotos').length).toEqual(1);
-        expect(wrapper.find('.tagged-photos').length).toEqual(1);
+        expect(wrapper.find('.slugish').length).toEqual(1);
     });
 });

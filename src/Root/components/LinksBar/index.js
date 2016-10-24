@@ -11,7 +11,7 @@ const expendMoreIcon = 'M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z';
 /**
  * LinksBar
  */
-const LinksBar = ({location, actions, menuShowMore}) => {
+export const LinksBar = ({location, actions, menuShowMore}) => {
     const qs = location.search;
     const sh = location.hash;
 

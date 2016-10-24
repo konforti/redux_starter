@@ -2,9 +2,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-const config = require('../../server/config');
+const config = require('../../bundler/config');
 const env = 'test';
-const srcPath = path.join(__dirname, '../../src');
+const appPath = path.join(__dirname, '../../src');
 const distPath = path.join(__dirname, '../static');
 
 console.info('loading webpack with env:', env);
@@ -28,6 +28,15 @@ module.exports = {
         }),
         new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
         new webpack.NoErrorsPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            test: /\.(scss|css)$/,
+            options: {
+                postcss: [
+                    require('postcss-cssnext'),
+                    require('precss'),
+                ],
+            },
+        }),
     ],
     module: {
         loaders: [
@@ -70,15 +79,6 @@ module.exports = {
                 loader: 'file-loader',
             },
         ],
-
-        preLoaders: [
-            // instrument only testing sources with Istanbul
-            {
-                test: /\.js$/,
-                include: path.resolve(__dirname, 'src'),
-                loader: 'istanbul-instrumenter'
-            }
-        ]
     },
     externals: {
         'cheerio': 'window',
@@ -93,10 +93,10 @@ module.exports = {
         tls: 'empty',
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.css', '.html'],
+        extensions: ['.js', '.scss', '.html'],
     },
-    postcss: [
-        require('postcss-cssnext'),
-        require('precss'),
-    ],
+    // postcss: [
+    //     require('postcss-cssnext'),
+    //     require('precss'),
+    // ],
 };

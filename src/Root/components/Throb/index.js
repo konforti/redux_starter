@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
  * Throb
  * @constructor
  */
-const Throb = ({throbber}) => (
+export const Throb = ({throbber}) => (
     throbber
         ?
         <svg className='throb' viewBox='25 25 50 50'>

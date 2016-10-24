@@ -18,7 +18,7 @@ module.exports = function (config) {
 
         preprocessors: {
             // add webpack as preprocessor
-            'index.js': ['webpack', 'coverage'],
+            'index.js': ['webpack'],
         },
 
         webpack: webpackConfig,
@@ -34,7 +34,7 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['mocha', 'coverage'],
+        reporters: ['coverage', 'mocha'],
 
         // reporter options
         mochaReporter: {output: 'full'},
