@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+// @flow
+
+import React from 'react';
 import GridTile from './GridTile';
 
 /**
@@ -6,7 +8,7 @@ import GridTile from './GridTile';
  * @param items
  * @param selectAction
  */
-const getTiles = (items, selectAction) => (
+const getTiles = (items: Object[], selectAction: Function) => (
     items.map((tile) => (
         <GridTile
             key={tile.slug}
@@ -27,15 +29,11 @@ const getTiles = (items, selectAction) => (
  * @param selectAction
  * @constructor
  */
-const Grid = ({items, selectAction}) => (
+type propTypes = {items: Object[], selectAction: Function}
+const Grid = ({items, selectAction}: propTypes) => (
     <div className='grid'>
         {getTiles(items, selectAction)}
     </div>
 );
-
-Grid.propTypes = {
-    items: PropTypes.array,
-    selectAction: PropTypes.func,
-};
 
 export default Grid;

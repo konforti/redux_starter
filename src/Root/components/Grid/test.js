@@ -1,8 +1,8 @@
-import Grid from './';
-import GridTile from './GridTile';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import Grid from './';
+import GridTile from './GridTile';
 
 window.describe('Grid', () => {
 

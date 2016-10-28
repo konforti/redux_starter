@@ -1,9 +1,11 @@
-import React, {PropTypes} from 'react';
+// @flow
+
+import React from 'react';
+import {connect} from 'react-redux';
 import {config, history, t} from '~/utils';
 import {Link} from 'react-router';
 import SvgIcon from '~/src/Root/components/SvgIcon';
-import {connect} from 'react-redux';
-import actions from '~/src/Root/actions';
+import Actions from '../../actions';
 
 const expendLessIcon = 'M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z';
 const expendMoreIcon = 'M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z';
@@ -11,7 +13,8 @@ const expendMoreIcon = 'M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z';
 /**
  * LinksBar
  */
-export const LinksBar = ({location, actions, menuShowMore}) => {
+type propTypes = {location: Object, actions: Object, menuShowMore: boolean};
+export const LinksBar = ({location, actions, menuShowMore}: propTypes) => {
     const qs = location.search;
     const sh = location.hash;
 
@@ -26,24 +29,18 @@ export const LinksBar = ({location, actions, menuShowMore}) => {
             </div>
             <div className='more-links' onClick={actions.toggleMenuMore}>
                 <SvgIcon path={menuShowMore ? expendMoreIcon : expendLessIcon} />
-                {menuShowMore
+                {
+                    menuShowMore
                     ?
-                    <div
-                        className='link-list'
-                    >
-                        <Link to={`/topic/sports/${qs}${sh}`} className='link' activeClassName='active'>{t('Sports')}</Link>
-                        <Link to={`/topic/business/${qs}${sh}`} className='link' activeClassName='active'>{t('Business')}</Link>
-                    </div>
-                    : null}
+                        <div className='link-list'>
+                            <Link to={`/topic/sports/${qs}${sh}`} className='link' activeClassName='active'>{t('Sports')}</Link>
+                            <Link to={`/topic/business/${qs}${sh}`} className='link' activeClassName='active'>{t('Business')}</Link>
+                        </div>
+                    : null
+                }
             </div>
         </div>
     );
-};
-
-LinksBar.propTypes = {
-    location: PropTypes.object,
-    actions: PropTypes.object,
-    menuShowMore: PropTypes.bool,
 };
 
 export default connect(
@@ -52,7 +49,7 @@ export default connect(
         location: location,
     }),
     dispatch => ({
-        actions: actions(dispatch),
+        actions: Actions(dispatch),
     }),
     null,
     {pure: false}

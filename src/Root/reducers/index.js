@@ -1,3 +1,5 @@
+// @flow
+
 import act from '../constants';
 
 /**
@@ -18,9 +20,9 @@ export const initialState = {
  * @param action
  * @returns {*}
  */
-export default function (state = initialState, action) {
+export default function (state: Object = initialState, action: Object) {
     const actions = {
-        
+
         [act.DATA_REQUESTED]: () => ({
             ...state,
             throbber: true,

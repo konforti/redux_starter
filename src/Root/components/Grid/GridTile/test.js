@@ -1,7 +1,7 @@
-import GridTile from './index';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import GridTile from './';
 
 window.describe('GridTile', () => {
 
@@ -14,10 +14,10 @@ window.describe('GridTile', () => {
                 title='A'
                 subtitle='a'
                 className='special-tile'
-                selected={true}
+                selected={1}
                 selectAction={() => ''}
             >
-                <img src='image.png' alt=''/>
+                <img src='image.png' alt='' />
             </ GridTile>
         );
         expect(wrapper.find('.tile').length).toEqual(1);

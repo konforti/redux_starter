@@ -1,9 +1,9 @@
-import Root from '../index';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {store} from '~/utils';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import {store} from '~/utils';
+import Root from '../';
 
 window.describe('Root', () => {
 

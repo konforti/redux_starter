@@ -11,8 +11,14 @@
       ]
     },
     "test": {
-      "plugins": [ "istanbul"]
-    },
+      "plugins": [
+        ["istanbul", {
+          "include": [
+            "**/*.js"
+          ]
+        }]
+      ]
+    }
   },
-  "plugins": ["babel-root-import", "transform-flow-strip-types"]
+  "plugins": ["babel-root-import"]
 }

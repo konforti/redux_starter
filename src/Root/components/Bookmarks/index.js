@@ -1,11 +1,13 @@
-import React, {PropTypes} from 'react';
+// @flow
+
+import React from 'react';
+import {connect} from 'react-redux';
 import actions from '~/src/Root/actions';
 import Grid from '~/src/Root/components/Grid';
 import {Link} from 'react-router';
 import SvgIcon from '~/src/Root/components/SvgIcon';
-import LinksBarContainer from '~/src/Root/components/LinksBar';
-import {connect} from 'react-redux';
 import {t} from '~/utils';
+import LinksBarContainer from '../LinksBar';
 
 /**
  * Bookmarks
@@ -15,7 +17,8 @@ import {t} from '~/utils';
  * @returns {XML}
  * @constructor
  */
-const Bookmarks = ({entries, bookmarks, actions}) => {
+type propTypes = {actions: Object, entries: Object[], bookmarks: Object[]}
+const Bookmarks = ({entries, bookmarks, actions}: propTypes) => {
     const entriesWithBookmarks = entries
         .filter(item => bookmarks.indexOf(item.slug) !== -1)
         .map(item => {
@@ -28,13 +31,13 @@ const Bookmarks = ({entries, bookmarks, actions}) => {
 
     const screen = !entriesWithBookmarks.length
         ?
-        <div className='no-items'>
-            <h3>{t('No Items')}</h3>
-        </div>
+            <div className='no-items'>
+                <h3>{t('No Items')}</h3>
+            </div>
         :
-        <div className='content'>
-            <Grid items={entriesWithBookmarks} selectAction={actions.toggleBookmark} />
-        </div>;
+            <div className='content'>
+                <Grid items={entriesWithBookmarks} selectAction={actions.toggleBookmark} />
+            </div>;
 
     return (
         <div className='bookmarks'>
@@ -50,12 +53,6 @@ const Bookmarks = ({entries, bookmarks, actions}) => {
             {screen}
         </div>
     );
-};
-
-Bookmarks.propTypes = {
-    actions: PropTypes.object,
-    entries: PropTypes.array,
-    bookmarks: PropTypes.array,
 };
 
 export default connect(

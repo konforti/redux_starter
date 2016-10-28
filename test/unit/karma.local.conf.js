@@ -13,12 +13,12 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'index.js',
+            'test-bundler.js',
         ],
 
         preprocessors: {
             // add webpack as preprocessor
-            'index.js': ['webpack'],
+            ['test-bundler.js']: ['webpack'],
         },
 
         webpack: webpackConfig,

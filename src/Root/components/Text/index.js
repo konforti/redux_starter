@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+// @flow
+
+import React from 'react';
 import keycode from 'keycode';
 
 /**
@@ -10,7 +12,8 @@ import keycode from 'keycode';
  * @param value
  * @constructor
  */
-const Text = ({className, onChange, onEnter, placeholder, value}) => (
+type propTypes = {className?: string, onChange: Function, onEnter: Function, placeholder: string, value?: string};
+const Text = ({className = '', onChange, onEnter, placeholder, value}: propTypes) => (
     <input
         type='text'
         className={`text-field ${className}`}
@@ -21,17 +24,5 @@ const Text = ({className, onChange, onEnter, placeholder, value}) => (
         autoFocus
     />
 );
-
-Text.propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func,
-    onEnter: PropTypes.func,
-    placeholder: PropTypes.string,
-    value: PropTypes.string,
-};
-
-Text.defaultProps = {
-    className: '',
-};
 
 export default Text;

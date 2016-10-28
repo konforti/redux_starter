@@ -31,5 +31,5 @@ http.createServer((req, res) => {
         }
     });
 }).listen(port, ip, function() {
-    console.info(`Server run: ${ip}:${port}`)
+    console.info(`Server run: ${ip}:${port}`);
 });

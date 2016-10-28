@@ -3,6 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const config = require('../../bundler/config');
+
 const env = 'test';
 const appPath = path.join(__dirname, '../../src');
 const distPath = path.join(__dirname, '../static');

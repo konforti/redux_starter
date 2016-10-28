@@ -1,3 +1,5 @@
+// @flow
+
 export default {
     DATA_REQUESTED: 'DATA_REQUESTED',
     DATA_SUCCEEDED: 'DATA_SUCCEEDED',

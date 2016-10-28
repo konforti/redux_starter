@@ -1,11 +1,14 @@
-import React, {PropTypes} from 'react';
-import actions from '~/src/Root/actions';
-import Grid from '~/src/Root/components/Grid';
-import {Link} from 'react-router';
-import SvgIcon from '~/src/Root/components/SvgIcon';
-import LinksBarContainer from '~/src/Root/components/LinksBar';
+// @flow
+
+import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
+import Grid from '~/src/Root/components/Grid';
+import SvgIcon from '~/src/Root/components/SvgIcon';
 import {t} from '~/utils';
+import LinksBarContainer from '../LinksBar';
+import Actions from '../../actions';
+
 
 /**
  * Topic
@@ -16,7 +19,8 @@ import {t} from '~/utils';
  * @returns {XML}
  * @constructor
  */
-const Topic = ({entries, bookmarks, params, actions}) => {
+type propTypes = {entries: Object[], bookmarks: Object[], params: Object, actions: Object};
+const Topic = ({entries, bookmarks, params, actions}: propTypes) => {
     const slug = params.slug;
     const topicEntries = entries.filter(item => item.topic === slug);
     const entriesWithBookmarks = topicEntries.map(item => {
@@ -29,13 +33,13 @@ const Topic = ({entries, bookmarks, params, actions}) => {
 
     const screen = !entriesWithBookmarks.length
         ?
-        <div className='no-items'>
-            <h3>{t('No Items')}</h3>
-        </div>
+            <div className='no-items'>
+                <h3>{t('No Items')}</h3>
+            </div>
         :
-        <div className='content'>
-            <Grid items={entriesWithBookmarks} selectAction={actions.toggleBookmark} />
-        </div>;
+            <div className='content'>
+                <Grid items={entriesWithBookmarks} selectAction={actions.toggleBookmark} />
+            </div>;
 
     return (
         <div className={slug}>
@@ -53,19 +57,12 @@ const Topic = ({entries, bookmarks, params, actions}) => {
     );
 };
 
-Topic.propTypes = {
-    actions: PropTypes.object,
-    entries: PropTypes.array,
-    bookmarks: PropTypes.array,
-    params: PropTypes.object,
-};
-
 export default connect(
     state => ({
         entries: state.Root.entries,
         bookmarks: state.Root.bookmarks,
     }),
     dispatch => ({
-        actions: actions(dispatch),
+        actions: Actions(dispatch),
     }),
 )(Topic);

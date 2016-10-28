@@ -1,38 +1,42 @@
+// @flow
+
 import {browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
-import configDefault from '../config/default.js';
 import {EventEmitter} from 'fbemitter';
-import configureStore from './store';
 import rollbar from 'rollbar-browser';
-import * as api from './api';
+
 import t from './translator';
+import configureStore from './store';
+import * as api from './api';
+import configDefault from '../config/default';
 
 /**
  * Configuration variables based on the environment.
  */
-const envConfig = require(`../config/${configDefault.env}`).default;
-export const config = {...configDefault, ...envConfig};
+
+// $FlowFixMe
+const envConfig = require(`../config/${configDefault.env}`).default; // eslint-disable-line import/no-dynamic-require
+export const config: Object = {...configDefault, ...envConfig};
 
 /**
  * The Redux store.
  */
-export const store = configureStore(config.env);
+export const store: Object = configureStore(config.env);
 
 /**
  * Route history.
  */
-export const history = syncHistoryWithStore(browserHistory, store);
-
+export const history: Object = syncHistoryWithStore(browserHistory, store);
 
 /**
  * Event emitter.
  */
-export const em = new EventEmitter();
+export const em: Object = new EventEmitter();
 
 /**
  * Setup Rollbar.
  */
-export const log = rollbar.init({
+export const log: Object = rollbar.init({
     accessToken: config.rollbarKey,
     captureUncaught: true,
     captureUnhandledRejections: true,
@@ -51,9 +55,6 @@ export {api};
  */
 export {t};
 
-/**
- * Export singleton.
- */
 export default {
     store,
     history,

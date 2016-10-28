@@ -1,11 +1,11 @@
-import {SearchBar} from './index';
 import React from 'react';
-import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import {render, mount, shallow} from 'enzyme';
 import SvgIcon from '~/src/Root/components/SvgIcon';
 import Text from '~/src/Root/components/Text';
+import {SearchBar} from './';
 
-window.describe('Dropbox <SearchBar />', () => {
+window.describe('Root <SearchBar />', () => {
 
     window.it('Render SearchBar', () => {
         const wrapper = shallow(

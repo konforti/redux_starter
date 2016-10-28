@@ -1,25 +1,27 @@
+// @flow
+
 export default [
     {
         path: '/',
-        onEnter: (nextState, replace) => {
+        onEnter: (nextState: Object, replace: Function) => {
             replace('/topic/music');
         },
     }, {
         path: 'topic/:slug',
-        getComponent: async(nextState, cb) => {
-            const module = await System.import('../components/topic');
+        getComponent: async(nextState: Object, cb: Function) => {
+            const module = await require('../components/topic');
             cb(null, module.default);
         },
     },{
         path: 'search',
-        getComponent: async(nextState, cb) => {
-            const module = await System.import('../components/search');
+        getComponent: async(nextState: Object, cb: Function) => {
+            const module = await require('../components/search');
             cb(null, module.default);
         },
     }, {
         path: 'bookmarks',
-        getComponent: async(nextState, cb) => {
-            const module = await System.import('../components/bookmarks');
+        getComponent: async(nextState: Object, cb: Function) => {
+            const module = await require('../components/bookmarks');
             cb(null, module.default);
         },
     },

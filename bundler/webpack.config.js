@@ -5,6 +5,7 @@ const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const config = require('./config');
+
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
 const appPath = path.join(__dirname, '../src');

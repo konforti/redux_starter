@@ -1,4 +1,6 @@
-import React, {PropTypes, defaultProps} from 'react';
+// @flow
+
+import React from 'react';
 import SvgIcon from '~/src/Root/components/SvgIcon';
 
 const selectedIcon = 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z';
@@ -17,10 +19,11 @@ const deselectedIcon = 'M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 
  * @returns {XML}
  * @constructor
  */
-const Grid = ({id, link, thumbnail, title, subtitle, className, selected, selectAction}) => {
+type propTypes = {id: string, link: string, thumbnail: string, title: string, subtitle: string, className?: string, selected: boolean, selectAction: Function};
+const Grid = ({id, link, thumbnail, title, subtitle, className = '', selected, selectAction}: propTypes) => {
     return (
-        <a className={`tile ${className}`} href={link} target='_blank'>
-            <div className='tile-inner' style={{backgroundImage: `url(${thumbnail})`}}></div>
+        <a className={`tile ${className}`} href={link} target='_blank' rel='noopener'>
+            <div className='tile-inner' style={{backgroundImage: `url(${thumbnail})`}} />
             <span
                 className='bookmark'
                 onClick={(e) => {
@@ -40,25 +43,8 @@ const Grid = ({id, link, thumbnail, title, subtitle, className, selected, select
                     </div>
                 </div>
             </div>
-
-
         </a>
     );
-};
-
-Grid.propTypes = {
-    id: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string,
-    thumbnail: PropTypes.string,
-    className: PropTypes.string,
-    selectAction: PropTypes.func,
-    selected: PropTypes.bool,
-};
-
-Grid.defaultProps = {
-    className: '',
 };
 
 export default Grid;

@@ -1,6 +1,6 @@
-import {config, api} from '~/utils';
 import shuffle from 'lodash/shuffle';
 import {bindActionCreators} from 'redux';
+import {config, api} from '~/utils';
 import act from '../constants';
 
 /**

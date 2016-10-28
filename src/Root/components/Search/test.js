@@ -1,9 +1,9 @@
-import Search from './';
 import {Provider} from 'react-redux';
-import {store} from '~/utils';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import {store} from '~/utils';
+import Search from './';
 
 window.describe('<Search />', () => {
 

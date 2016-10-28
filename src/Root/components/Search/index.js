@@ -1,20 +1,22 @@
-import React, {PropTypes} from 'react';
-import Grid from '~/src/Root/components/Grid';
-import SearchBar from '~/src/Root/components/SearchBar';
-import {t} from '~/utils';
-import actions from '../../actions';
+// @flow
+
+import React from 'react';
 import {connect} from 'react-redux';
+import Grid from '~/src/Root/components/Grid';
+import {t} from '~/utils';
+import SearchBar from '../SearchBar';
+import Actions from '../../actions';
+
 
 /**
  * Search
  * @param searchResult
- * @param searchTerm
  * @param bookmarks
- * @param actions
  * @returns {XML}
  * @constructor
  */
-const Search = ({searchResult, searchTerm, bookmarks, actions}) => {
+type propTypes = {searchResult: Object[], bookmarks: string[]};
+const Search = ({searchResult, bookmarks}: propTypes) => {
     const entriesWithBookmarks = searchResult.map(item => {
         item.selected = bookmarks.indexOf(item.slug) !== -1;
         return item;
@@ -25,7 +27,7 @@ const Search = ({searchResult, searchTerm, bookmarks, actions}) => {
             <div className='nav-bar'>
                 <SearchBar />
             </div>
-            <Grid items={entriesWithBookmarks} />
+            <Grid items={entriesWithBookmarks} selectAction={() => ''} />
         </div>
     );
 
@@ -36,20 +38,12 @@ const Search = ({searchResult, searchTerm, bookmarks, actions}) => {
     );
 };
 
-Search.propTypes = {
-    actions: PropTypes.object,
-    searchResult: PropTypes.array,
-    searchTerm: PropTypes.string,
-    bookmarks: PropTypes.array,
-};
-
 export default connect(
     state => ({
         searchResult: state.Root.searchResult,
-        searchTerm: state.Root.searchTerm,
         bookmarks: state.Root.bookmarks,
     }),
     dispatch => ({
-        actions: actions(dispatch),
+        actions: Actions(dispatch),
     }),
 )(Search);

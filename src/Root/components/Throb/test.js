@@ -1,13 +1,13 @@
-import {Throb} from './';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import {Throb} from './';
 
 window.describe('Throb (on)', () => {
 
     window.it('Render Throb', () => {
         const wrapper = shallow(
-            <Throb throbber={true} />
+            <Throb throbber={1} />
         );
         // console.log(wrapper.debug());
         expect(wrapper.find('circle').length).toEqual(1);

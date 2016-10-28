@@ -1,27 +1,29 @@
+// @flow
+
 import {createStore, applyMiddleware} from 'redux';
-import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 import {browserHistory} from 'react-router';
 import {routerMiddleware} from 'react-router-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
+import rootReducer from './reducers';
 
-module.exports = function configureStore(env) {
-    const isDev = env === 'development';
+module.exports = function configureStore(env: string) {
+    const isDev: boolean = env === 'development';
 
     // Middleware.
-    const middleware = [
+    const middleware: [] = [
         thunk,
         routerMiddleware(browserHistory),
     ];
 
     // Redux logger.
     if (isDev) {
-        const createLogger = require('redux-logger');
+        const createLogger: any = require('redux-logger');
         middleware.push(createLogger());
     }
 
     // Create the store.
-    const store = createStore(
+    const store: Object = createStore(
         rootReducer,
         composeWithDevTools(
             applyMiddleware(...middleware)
@@ -30,8 +32,9 @@ module.exports = function configureStore(env) {
 
     // Hot loader.
     if (isDev && module.hot) {
+        // $FlowFixMe.
         module.hot.accept('./reducers', () => {
-            const nextReducer = require('./reducers').default;
+            const nextReducer: any = require('./reducers').default;
             store.replaceReducer(nextReducer);
         });
     }

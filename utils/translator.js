@@ -1,11 +1,13 @@
-const requireContext = require.context('../src', true, /\/translations\/index.js$/);
+// @flow
 
-const translations = requireContext.keys().reduce((bucket, drop) => (
-    {...bucket, ...requireContext(drop).default}
+const requireContext: Function = require.context('../src', true, /\/translations\/index.js$/);
+
+const translations: Object = requireContext.keys().reduce((bucket, drop) => (
+{...bucket, ...requireContext(drop).default}
 ), {});
 
-export default (str) => {
-    const lang = navigator.language || 'en-US';
+export default (str: string) => {
+    const lang: string = navigator.language || 'en-US';
 
     return translations[str] && translations[str][lang]
         ? translations[str][lang]

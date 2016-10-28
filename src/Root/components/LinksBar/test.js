@@ -1,7 +1,7 @@
-import {LinksBar} from './index';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import {LinksBar} from './';
 
 window.describe('<LinksBar />', () => {
 

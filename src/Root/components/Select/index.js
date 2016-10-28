@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+// @flow
+
+import React from 'react';
 import {config} from '~/utils';
 
 /**
@@ -12,7 +14,8 @@ import {config} from '~/utils';
  * @returns {*}
  * @constructor
  */
-const Select = ({options, defaultValue, id, className, onChange, label}) => {
+type propTypes = {options: [], defaultValue: string, id: string, className: string, onChange: Function, label: string};
+const Select = ({options, defaultValue, id, className, onChange, label}: propTypes) => {
     const items = options.map(item => (
         <option
             key={item.value}
@@ -25,28 +28,18 @@ const Select = ({options, defaultValue, id, className, onChange, label}) => {
 
     return options.length > 1
         ?
-        <div className='select-element'>
-            <label htmlFor={id}>{label}</label>
-            <select
-                id={id}
-                className={`select-field ${className || ''}`}
-                value={defaultValue}
-                onChange={onChange}
-            >
-                {items}
-            </select>
-        </div>
-
+            <div className='select-element'>
+                <label htmlFor={id}>{label}</label>
+                <select
+                    id={id}
+                    className={`select-field ${className || ''}`}
+                    value={defaultValue}
+                    onChange={onChange}
+                >
+                    {items}
+                </select>
+            </div>
         : null;
-};
-
-Select.propTypes = {
-    options: PropTypes.array.isRequired,
-    defaultValue: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
 };
 
 export default Select;

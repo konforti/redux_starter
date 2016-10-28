@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 /**
  * Button
@@ -7,7 +7,8 @@ import React, {PropTypes} from 'react';
  * @param onClick
  * @constructor
  */
-export const Button = ({text, className, onClick}) => (
+type propTypes = {text: string, className?: string, onClick: Function}
+export const Button = ({text, className = '', onClick}: propTypes) => (
     <a
         className={`button ${className}`}
         href='javascript:void(0)'
@@ -16,15 +17,5 @@ export const Button = ({text, className, onClick}) => (
         {text}
     </a>
 );
-
-Button.propTypes = {
-    text: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-    className: '',
-};
 
 export default Button;

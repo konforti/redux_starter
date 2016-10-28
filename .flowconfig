@@ -2,7 +2,9 @@
 .*/node_modules/fbjs/.*
 
 [include]
+./node_modules/
 
 [libs]
 
 [options]
+module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/\1'

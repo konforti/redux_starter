@@ -1,7 +1,7 @@
-import SvgIcon from './index';
 import React from 'react';
 import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
+import SvgIcon from './';
 
 window.describe('SvgIcon', () => {
 

@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+// @flow
+
+import React from 'react';
 
 /**
  * Svg
@@ -9,7 +11,8 @@ import React, {PropTypes} from 'react';
  * @param width
  * @constructor
  */
-const SvgIcon = ({path, className, viewBox, height, width}) => (
+type propTypes = {path: string, className?: string, viewBox?: string, height?: string, width?: string};
+const SvgIcon = ({path, className = '', viewBox, height, width}: propTypes) => (
     <svg
         className={className}
         viewBox={viewBox || '0 0 24 24'}
@@ -19,17 +22,5 @@ const SvgIcon = ({path, className, viewBox, height, width}) => (
         <path d={path} />
     </svg>
 );
-
-SvgIcon.propTypes = {
-    path: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    viewBox: PropTypes.string,
-    height: PropTypes.string,
-    width: PropTypes.string,
-};
-
-SvgIcon.defaultProps = {
-    className: '',
-};
 
 export default SvgIcon;

@@ -1,16 +1,18 @@
+// @flow
+
 import React, {PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import Hook from 'react-hooks';
 import {t} from '~/utils';
-import * as Actions from './actions';
+import Actions from './actions';
 import Socials from './components/Socials';
 import Throb from './components/Throb';
-import Hook from 'react-hooks';
 
 /**
  * Root
  */
-const Root = ({children, throbber, actions} ) => (
+type propTypes = {children: Object, throbber: boolean, actions: Object}
+const Root = ({children, throbber, actions}: propTypes) => (
     <div>
         <Hook
             didMount={() => {
@@ -29,23 +31,15 @@ const Root = ({children, throbber, actions} ) => (
         <main>
             {children}
         </main>
-        <footer>
-
-        </footer>
+        <footer />
     </div>
 );
-
-Root.propTypes = {
-    children: PropTypes.object.isRequired,
-    throbber: PropTypes.bool,
-    actions: PropTypes.object,
-};
 
 export default connect(
     state => ({
         throbber: state.Root.throbber,
     }),
     dispatch => ({
-        actions: bindActionCreators(Actions, dispatch),
+        actions: Actions(dispatch),
     }),
 )(Root);
