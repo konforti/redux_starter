@@ -8,6 +8,7 @@ import rollbar from 'rollbar-browser';
 import t from './translator';
 import configureStore from './store';
 import * as api from './api';
+import './styles';
 import configDefault from '../config/default';
 
 /**

@@ -14,10 +14,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 /**
- * Load all styles.
+ * React/Redux start point.
  */
-require.context('./', true, /\.scss$/);
-
 render(
     <Provider store={store}>
         <div id='viewport'>

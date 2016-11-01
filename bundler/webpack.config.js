@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
+const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
 const config = require('./config');
@@ -60,6 +61,10 @@ module.exports = {
             'process.env': {
                 NODE_ENV: JSON.stringify(env),
                 BASE_PATH: JSON.stringify(appPath),
+                REDUCERS: JSON.stringify(glob.sync('src/**/reducers')),
+                ROUTES: JSON.stringify(glob.sync('src/**/routes')),
+                TRANSLATIONS: JSON.stringify(glob.sync('src/**/translations')),
+                STYLES: JSON.stringify(glob.sync('src/**/style.scss')),
             },
         }),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}),

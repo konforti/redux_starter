@@ -11,8 +11,10 @@
     "lint": "eslint . --ext .js",
     "test": "karma start test/unit/karma.conf.js --compilers js:babel-register --recursive",
     "test:local": "NODE_ENV=test karma start test/unit/karma.local.conf.js --single-run",
+    "test:mocha": "NODE_ENV=test mocha --single-run",
     "test:e2e": "nightwatch -c test/e2e/nightwatch.conf.js",
-    "test:e2e:local": "pkill BrowserSt & node test/e2e/test_local.js"
+    "test:e2e:local": "pkill BrowserSt & node test/e2e/test_local.js",
+    "jest": "NODE_ENV=test jest"
   },
   "dependencies": {
     "babel-polyfill": "^6.8.0",
@@ -64,6 +66,7 @@
     "flow-bin": "^0.33.0",
     "flow-status-webpack-plugin": "^0.1.7",
     "html-webpack-plugin": "^2.24.0",
+    "jest": "^16.0.2",
     "json-loader": "^0.5.4",
     "karma": "^1.1.1",
     "karma-browserstack-launcher": "^1.0.1",
