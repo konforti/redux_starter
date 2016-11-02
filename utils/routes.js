@@ -8,7 +8,9 @@ import {config} from './';
 // const children: [] = requireContext.keys().map(k => requireContext(k).default);
 // const flat: [] = [].concat(...children);
 
-const children: [] = process.env.ROUTES.map(item => {
+const t = process.env.ROUTES || [];
+const T = typeof t === 'string' ? t.split(',') : t;
+const children: [] = T.map(item => {
     const path: string[] = item.split('/').slice(1, -1);
     return require(`../src/${path.join('/')}/routes/index`).default;
 });

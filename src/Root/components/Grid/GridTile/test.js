@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import GridTile from './';
 
-window.describe('GridTile', () => {
+describe('GridTile', () => {
 
-    window.it('Render GridTile', () => {
+    it('Render GridTile', () => {
         const wrapper = shallow(
             <GridTile
                 id='1'

@@ -7,7 +7,7 @@ import Grid from '~/src/Root/components/Grid';
 import {Link} from 'react-router';
 import SvgIcon from '~/src/Root/components/SvgIcon';
 import {t} from '~/utils';
-import LinksBarContainer from '../LinksBar';
+import LinksBar from '../LinksBar';
 
 /**
  * Bookmarks
@@ -18,7 +18,7 @@ import LinksBarContainer from '../LinksBar';
  * @constructor
  */
 type propTypes = {actions: Object, entries: Object[], bookmarks: Object[]}
-const Bookmarks = ({entries, bookmarks, actions}: propTypes) => {
+export const Bookmarks = ({entries, bookmarks, actions}: propTypes) => {
     const entriesWithBookmarks = entries
         .filter(item => bookmarks.indexOf(item.slug) !== -1)
         .map(item => {
@@ -42,7 +42,7 @@ const Bookmarks = ({entries, bookmarks, actions}: propTypes) => {
     return (
         <div className='bookmarks'>
             <div className='nav-bar'>
-                <LinksBarContainer />
+                <LinksBar />
                 <Link to={'/bookmarks'} className='to-bookmarks' activeClassName='active'>
                     <SvgIcon path={bookmarksIcon} />
                 </Link>

@@ -5,9 +5,9 @@ import SvgIcon from '~/src/Root/components/SvgIcon';
 import Text from '~/src/Root/components/Text';
 import {SearchBar} from './';
 
-window.describe('Root <SearchBar />', () => {
+describe('Root <SearchBar />', () => {
 
-    window.it('Render SearchBar', () => {
+    it('Render SearchBar', () => {
         const wrapper = shallow(
             <SearchBar onSearch={() => ''} actions={{updateSearchTerm: () => ''}} searchTerm='' />
         );

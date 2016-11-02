@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import SvgIcon from './';
 
-window.describe('SvgIcon', () => {
+describe('SvgIcon', () => {
 
-    window.it('Render SvgIcon', () => {
+    it('Render SvgIcon', () => {
         const wrapper = shallow(
             <SvgIcon
                 path='svg_path'

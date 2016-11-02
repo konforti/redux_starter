@@ -11,10 +11,8 @@
     "lint": "eslint . --ext .js",
     "test": "karma start test/unit/karma.conf.js --compilers js:babel-register --recursive",
     "test:local": "NODE_ENV=test karma start test/unit/karma.local.conf.js --single-run",
-    "test:mocha": "NODE_ENV=test mocha --single-run",
     "test:e2e": "nightwatch -c test/e2e/nightwatch.conf.js",
-    "test:e2e:local": "pkill BrowserSt & node test/e2e/test_local.js",
-    "jest": "NODE_ENV=test jest"
+    "test:e2e:local": "pkill BrowserSt & node test/e2e/test_local.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.8.0",
@@ -42,10 +40,10 @@
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-istanbul": "^2.0.3",
-    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.1",
-    "babel-preset-stage-0": "^6.3.13",
+    "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.11.5",
     "babel-root-import": "^4.0.1",
     "browserstack-local": "^1.0.0",

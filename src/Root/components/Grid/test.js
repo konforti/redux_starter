@@ -4,9 +4,9 @@ import expect from 'expect';
 import Grid from './';
 import GridTile from './GridTile';
 
-window.describe('Grid', () => {
+describe('Grid', () => {
 
-    window.it('Render Grid', () => {
+    it('Render Grid', () => {
         const images = [
             {
                 link: '1',

@@ -5,9 +5,9 @@ import expect from 'expect';
 import {store} from '~/utils';
 import Topic from './';
 
-window.describe('<Topic />', () => {
+describe('<Topic />', () => {
 
-    window.it('Render Topic', () => {
+    it('Render Topic', () => {
         const wrapper = mount(
             <Provider store={store}>
                 <Topic params={{slug: 'slugish'}} />

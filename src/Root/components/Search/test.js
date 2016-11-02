@@ -5,9 +5,9 @@ import expect from 'expect';
 import {store} from '~/utils';
 import Search from './';
 
-window.describe('<Search />', () => {
+describe('<Search />', () => {
 
-    window.it('Render Search', () => {
+    it('Render Search', () => {
         const wrapper = mount(
             <Provider store={store}>
                 <Search />

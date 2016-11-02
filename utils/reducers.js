@@ -14,7 +14,9 @@ import {combineReducers} from 'redux';
 //     }
 // ), {});
 
-const reducers: Object = process.env.REDUCERS.reduce((bucket, drop) => {
+const t = process.env.REDUCERS || [];
+const T = typeof t === 'string' ? t.split(',') : t;
+const reducers: Object = T.reduce((bucket, drop) => {
     const path: string[] = drop.split('/').slice(1, -1);
     return {
         ...bucket,

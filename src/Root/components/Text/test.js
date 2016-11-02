@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import Text from './';
 
-window.describe('Select', () => {
+describe('Select', () => {
 
-    window.it('Render Select', () => {
+    it('Render Select', () => {
         const wrapper = shallow(
             <Text
                 className='text-field-test'

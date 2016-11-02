@@ -104,16 +104,29 @@ module.exports = {
                 ]),
             }, {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file?name=images/[name].[ext]',
+                loader: 'file',
+                query: {
+                    name: 'images/[name].[ext]',
+                },
             }, {
                 test: /\.json$/,
                 loader: 'json',
             }, {
                 test: /\.woff$/,
-                loader: 'url?limit=10000&mimetype=application/font-woff&name=[path][name].[ext]',
+                loader: 'url',
+                query: {
+                    limit: '10000',
+                    mimetype: 'application/font-woff',
+                    name: '[path][name].[ext]',
+                },
             }, {
                 test: /\.woff2$/,
-                loader: 'url-loader?limit=10000&mimetype=application/font-woff2&name=[path][name].[ext]',
+                loader: 'url-loader',
+                query: {
+                    limit: 'limit=10000',
+                    mimetype: 'application/font-woff2',
+                    name: '[path][name].[ext]',
+                },
             }, {
                 test: /\.(eot|ttf|svg|gif|png)$/,
                 loader: 'file',

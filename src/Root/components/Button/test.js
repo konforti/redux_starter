@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import {Button} from './';
 
-window.describe('Button', () => {
+describe('Button', () => {
 
-    window.it('Render Button', () => {
+    it('Render Button', () => {
         const wrapper = shallow(
             <Button
                 text='Click Me' 

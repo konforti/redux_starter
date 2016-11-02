@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import Socials from './';
 
-window.describe('Socials', () => {
+describe('Socials', () => {
 
-    window.it('Render Socials', () => {
+    it('Render Socials', () => {
         const wrapper = shallow(
             <Socials />
         );

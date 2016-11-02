@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import {Throb} from './';
 
-window.describe('Throb (on)', () => {
+describe('Throb (on)', () => {
 
-    window.it('Render Throb', () => {
+    it('Render Throb', () => {
         const wrapper = shallow(
             <Throb throbber={1} />
         );
@@ -14,7 +14,7 @@ window.describe('Throb (on)', () => {
         expect(wrapper.find('svg').hasClass('throb')).toEqual(true);
     });
 
-    window.it('Render Throb (off)', () => {
+    it('Render Throb (off)', () => {
         const wrapper = shallow(
             <Throb />
         );

@@ -3,9 +3,9 @@ import {render, mount, shallow} from 'enzyme';
 import expect from 'expect';
 import {LinksBar} from './';
 
-window.describe('<LinksBar />', () => {
+describe('<LinksBar />', () => {
 
-    window.it('Render LinksBar', () => {
+    it('Render LinksBar', () => {
         const wrapper = shallow(
             <LinksBar location={{}} actions={{toggleMenuMore: () => ''}} />
         );

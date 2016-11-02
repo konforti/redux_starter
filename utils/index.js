@@ -3,7 +3,7 @@
 import {browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 import {EventEmitter} from 'fbemitter';
-import rollbar from 'rollbar-browser';
+// import rollbar from 'rollbar-browser';
 
 import t from './translator';
 import configureStore from './store';
@@ -37,14 +37,15 @@ export const em: Object = new EventEmitter();
 /**
  * Setup Rollbar.
  */
-export const log: Object = rollbar.init({
-    accessToken: config.rollbarKey,
-    captureUncaught: true,
-    captureUnhandledRejections: true,
-    payload: {
-        environment: 'development',
-    },
-});
+// export const log: Object = rollbar.init({
+//     accessToken: config.rollbarKey,
+//     captureUncaught: true,
+//     captureUnhandledRejections: true,
+//     payload: {
+//         environment: 'development',
+//     },
+//     enabled: false,
+// });
 
 /**
  * Re-export api
@@ -60,7 +61,7 @@ export default {
     store,
     history,
     config,
-    log,
+    // log,
     em,
     api,
     t,

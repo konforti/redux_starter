@@ -5,9 +5,9 @@ import expect from 'expect';
 import {store} from '~/utils';
 import Root from '../';
 
-window.describe('Root', () => {
+describe('Root', () => {
 
-    window.it('Render Root', () => {
+    it('Render Root', () => {
         const wrapper = shallow(
             <Provider store={store}>
                 <Root>
